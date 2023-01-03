@@ -1,0 +1,27 @@
+###### Common ######
+.exercism
+**/.vscode
+
+###### dotnet ######
+**/bin/**
+**/obj/**
+**/.editorconfig
+
+###### Haskell ######
+**/.stack-work
+**/src/main.*
+**/**.yaml.lock
+
+###### Rust ######
+# Rusts own gitignore
+
+###### Clojure ######
+**/.lein-failures
+**/.nrepl-port
+**/target
+**/.calva
+**/.clj-kondo
+**/.lsp
+
+###### Elixir ######
+**/*.exs
