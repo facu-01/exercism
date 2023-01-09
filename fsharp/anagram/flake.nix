@@ -18,7 +18,10 @@
         devShell = pkgs.mkShell
           {
             buildInputs = with pkgs;[
-              dotnet-sdk_7
+              (with dotnetCorePackages; combinePackages [
+                sdk_6_0
+                sdk_7_0
+              ])
             ];
 
             shellHook = ''
