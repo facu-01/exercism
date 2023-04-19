@@ -1,3 +1,12 @@
+
 module ReverseString
 
-let reverse (input: string): string = failwith "You need to implement this function."
+open System
+
+
+
+let reverse (input: string): string = 
+    input
+    |> seq
+    |> Seq.rev
+    |>  String.Concat    
