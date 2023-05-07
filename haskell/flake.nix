@@ -30,16 +30,6 @@
 
             shellHook = ''
               echo Haskell development
-              echo getting everithing ready ...
-              
-              if grep -q "nix" stack.yaml 
-              then echo "nix enabled on stack.yaml!" 
-              else echo "enabling nix on stack.yaml..." && echo "nix:
-                enable: true" >> stack.yaml 
-              fi
-              
-              stack ghc -- --version
-              echo all done!
             '';
           };
       }
