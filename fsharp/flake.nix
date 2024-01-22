@@ -1,6 +1,4 @@
 {
-  description = "Development environment Haskell - Stack";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     systems.url = "github:nix-systems/default";
@@ -34,25 +32,25 @@
                   eamodio.gitlens
                   gruntfuggly.todo-tree
                   vscode-icons-team.vscode-icons
-                  haskell.haskell
-                  justusadam.language-haskell
-                  usernamehw.errorlens
+                  # usernamehw.errorlens
+                  # ms-dotnettools.csdevkit
+                  ionide.ionide-fsharp
+                  # ms-dotnettools.csharp
+                  ms-dotnettools.vscode-dotnet-runtime
                 ];
               in
               (vscode-with-extensions.override {
-                vscodeExtensions = someExtensions;
+                vscodeExtensions = someExtensions ++ [ pkgs.vscode-extensions.ms-dotnettools.csharp ];
               });
           in
           {
             default = pkgs.mkShell {
 
               NIX_PATH = "nixpkgs=" + pkgs.path;
+              DOTNET_ROOT = "${pkgs.dotnet-sdk_7}";
 
               buildInputs = with pkgs;[
-                haskell-language-server
-                ghc
-                stack
-                helix
+                dotnet-sdk_7
               ] ++ [ codeWithExtensions ];
 
             };

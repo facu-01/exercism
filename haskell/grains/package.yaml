@@ -1,15 +1,14 @@
-name: rna-transcription
-version: 1.3.0.10
+name: grains
+version: 1.2.0.6
 
 dependencies:
   - base
 
 library:
-  exposed-modules: DNA
+  exposed-modules: Grains
   source-dirs: src
   ghc-options: -Wall
-  dependencies:
-  - containers
+  # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 
@@ -18,6 +17,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - rna-transcription
+      - grains
       - hspec
-      - containers

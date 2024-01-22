@@ -54,7 +54,7 @@ stack ghci
 
 ## Submitting your solution
 
-You can submit your solution using the `exercism submit src/DNA.hs package.yaml` command.
+You can submit your solution using the `exercism submit src/Acronym.hs package.yaml` command.
 This command will upload your solution to the Exercism website and print the solution page's URL.
 
 It's possible to submit an incomplete solution which allows you to:

@@ -4,33 +4,31 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           rna-transcription
-version:        1.3.0.10
+name:           reverse-string
+version:        0.1.0.0
 build-type:     Simple
 
 library
   exposed-modules:
-      DNA
+      ReverseString
   other-modules:
-      Paths_rna_transcription
+      Paths_reverse_string
   hs-source-dirs:
       src
   ghc-options: -Wall
   build-depends:
       base
-    , containers
   default-language: Haskell2010
 
 test-suite test
   type: exitcode-stdio-1.0
   main-is: Tests.hs
   other-modules:
-      Paths_rna_transcription
+      Paths_reverse_string
   hs-source-dirs:
       test
   build-depends:
       base
-    , containers
     , hspec
-    , rna-transcription
+    , reverse-string
   default-language: Haskell2010

@@ -4,33 +4,31 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           rna-transcription
-version:        1.3.0.10
+name:           sum-of-multiples
+version:        1.5.0.10
 build-type:     Simple
 
 library
   exposed-modules:
-      DNA
+      SumOfMultiples
   other-modules:
-      Paths_rna_transcription
+      Paths_sum_of_multiples
   hs-source-dirs:
       src
   ghc-options: -Wall
   build-depends:
       base
-    , containers
   default-language: Haskell2010
 
 test-suite test
   type: exitcode-stdio-1.0
   main-is: Tests.hs
   other-modules:
-      Paths_rna_transcription
+      Paths_sum_of_multiples
   hs-source-dirs:
       test
   build-depends:
       base
-    , containers
     , hspec
-    , rna-transcription
+    , sum-of-multiples
   default-language: Haskell2010

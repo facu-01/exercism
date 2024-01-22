@@ -1,15 +1,15 @@
-name: rna-transcription
-version: 1.3.0.10
+name: acronym
+version: 1.7.0.11
 
 dependencies:
   - base
 
 library:
-  exposed-modules: DNA
+  exposed-modules: Acronym
   source-dirs: src
   ghc-options: -Wall
   dependencies:
-  - containers
+    - text
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 
@@ -18,6 +18,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - rna-transcription
+      - acronym
       - hspec
-      - containers

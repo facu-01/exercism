@@ -1,15 +1,14 @@
-name: rna-transcription
-version: 1.3.0.10
+name: reverse-string
+version: 0.1.0.0
 
 dependencies:
   - base
 
 library:
-  exposed-modules: DNA
+  exposed-modules: ReverseString
   source-dirs: src
   ghc-options: -Wall
-  dependencies:
-  - containers
+  # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.
 
@@ -18,6 +17,5 @@ tests:
     main: Tests.hs
     source-dirs: test
     dependencies:
-      - rna-transcription
+      - reverse-string
       - hspec
-      - containers
