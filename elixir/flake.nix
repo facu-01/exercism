@@ -1,5 +1,4 @@
 {
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     systems.url = "github:nix-systems/default";
@@ -29,9 +28,8 @@
               let
                 inherit (pkgs) vscode-with-extensions;
                 someExtensions = with (extensions.forVSCodeVersion pkgs.vscode.version).vscode-marketplace; [
-                  haskell.haskell
-                  justusadam.language-haskell
                   usernamehw.errorlens
+                  jakebecker.elixir-ls
                 ];
               in
               (vscode-with-extensions.override {
@@ -41,12 +39,9 @@
           {
             default = pkgs.mkShell {
 
-              NIX_PATH = "nixpkgs=" + pkgs.path;
-
               buildInputs = with pkgs;[
-                haskell-language-server
-                ghc
-                stack
+                elixir-ls
+                elixir_1_16
               ] ++ [ codeWithExtensions ];
 
             };
