@@ -6,9 +6,17 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = { self, nixpkgs, systems, nix-vscode-extensions, ... }@inputs:
-    let forEachSystem = nixpkgs.lib.genAttrs (import systems);
-    in {
+  outputs =
+    { self
+    , nixpkgs
+    , systems
+    , nix-vscode-extensions
+    , ...
+    } @ inputs:
+    let
+      forEachSystem = nixpkgs.lib.genAttrs (import systems);
+    in
+    {
       devShells = forEachSystem
         (system:
           let
@@ -29,21 +37,9 @@
               (vscode-with-extensions.override {
                 vscodeExtensions = someExtensions;
               });
-
-            wsl = pkgs.mkShell {
-
-              NIX_PATH = "nixpkgs=" + pkgs.path;
-
-              shellHook = ''
-                WSLENV=$WSLENV:PATH
-              '';
-
-              buildInputs = with pkgs; [ haskell-language-server ghc stack ];
-
-            };
-
-
-            linux = pkgs.mkShell {
+          in
+          {
+            default = pkgs.mkShell {
 
               NIX_PATH = "nixpkgs=" + pkgs.path;
 
@@ -54,11 +50,6 @@
               ] ++ [ codeWithExtensions ];
 
             };
-          in
-          {
-
-            default = linux;
-
           });
 
     };
